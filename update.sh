@@ -24,7 +24,6 @@ make
 make install
 
 cd ~
-git clone https://gitee.com/Object0225/xjj-Radar.git
 cd xjj-Radar/
 npm i
 npm i -g pino
