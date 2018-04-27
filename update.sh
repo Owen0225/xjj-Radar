@@ -29,7 +29,7 @@ make
 make install
 
 git clone https://gitee.com/Object0225/xjj-Radar.git
-cd PUBG-Radar-Onekey/
+cd xjj-Radary/
 npm i
 npm i -g pino
 npm install -g forever
