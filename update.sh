@@ -29,7 +29,7 @@ make
 make install
 
 git clone https://gitee.com/Object0225/xjj-Radar.git
-cd xjj-Radary/
+cd xjj-Radar/
 npm i
 npm i -g pino
 npm install -g forever
