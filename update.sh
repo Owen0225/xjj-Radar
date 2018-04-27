@@ -1,13 +1,8 @@
 #!/bin/bash
-echo "欢迎使用一键搭建"
-echo "即将搭建的是4.26版本"
-echo "准备开始安装"
+echo "欢迎使用小姐姐一键搭建"
+ip=$(ifconfig | grep 'inet'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $2}')
+echo $ip
 read -p "回车后开始安装"
-echo "请输入你的内网ip" 
-read -p "内网ip： " ip
-cp /root/winnerpubg/restart.sh /root/restart.sh
-chmod +x restart.sh
-wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
 chmod +x shadowsocks-all.sh
 ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 
@@ -28,6 +23,7 @@ cd libpcap-1.8.1
 make
 make install
 
+cd ~
 git clone https://gitee.com/Object0225/xjj-Radar.git
 cd xjj-Radar/
 npm i
