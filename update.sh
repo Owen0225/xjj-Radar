@@ -9,7 +9,7 @@ chmod +x shadowsocks-all.sh
 echo "ss搭建成，请记住连接信息"
 read -p "记住了吗？任意键继续" 
 
-wget https://raw.githubusercontent.com/creationix/nvm/v0.13.1/install.sh | bash
+curl https://raw.githubusercontent.com/creationix/nvm/v0.13.1/install.sh | bash
 source ~/.bash_profile
 nvm install v9.8.0
 nvm alias default v9.8.0
