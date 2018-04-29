@@ -91,6 +91,7 @@ vapp = new Vue({
     showItemFlags: function () {
       if (this.showItemAll) {
         return 0b11111111111111111111111111111111
+		//return 0b10000000000000000000000000000000
       }
       let flags = 0
       // if (this.showItemTop) {
@@ -678,19 +679,22 @@ const renderMap = () => {
       )
     } else { // enemy
       if (playerObj.team) {
-        label = `${playerObj.team}`
+        //label = `${playerObj.team}`
       } else if (playerObj.name) {
         label = playerObj.name
       } else {
-        label = `<${playerObj.name}>`
+       // label = `<${playerObj.name}>`
       }
       if (playerObj.kills) {
-        label += ` |杀:${playerObj.kills}|`
+        //label += ` |杀:${playerObj.kills}`
       }
     }
     if (playerObj.health != null) {
-      label += ` |血:${Math.floor(playerObj.health)}|`
+      //label += ` |血:${Math.floor(playerObj.health)}|`
     }
+	if (playerObj.distance != null) {
+		//label += ` 距离:{playerObj.distance}|`
+	}
     feature.set('_label', label)
     // re-add should be fine
     playerSource.addFeature(feature)
