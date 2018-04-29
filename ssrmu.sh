@@ -540,7 +540,7 @@ Set_config_protocol_param(){
 	do
 	echo -e "请输入要设置的用户 欲限制的设备数 (${Green_font_prefix} auth_* 系列协议 不兼容原版才有效 ${Font_color_suffix})"
 	echo -e "${Tip} 设备数限制：每个端口同一时间能链接的客户端数量(多端口模式，每个端口都是独立计算)，建议最少 2个。"
-	stty erase '^H' && ssr_protocol_param
+	stty erase '^H' && ssr_protocol_param="2"
 	[[ -z "$ssr_protocol_param" ]] && ssr_protocol_param="2" && echo && break
 	expr ${ssr_protocol_param} + 0 &>/dev/null
 	if [[ $? == 0 ]]; then
@@ -560,7 +560,7 @@ Set_config_speed_limit_per_con(){
 	do
 	echo -e "请输入要设置的用户 单线程 限速上限(单位：KB/S)"
 	echo -e "${Tip} 单线程限速：每个端口 单线程的限速上限，多线程即无效。"
-	stty erase '^H' && ssr_speed_limit_per_con
+	stty erase '^H' && ssr_speed_limit_per_con=131072
 	[[ -z "$ssr_speed_limit_per_con" ]] && ssr_speed_limit_per_con=0 && echo && break
 	expr ${ssr_speed_limit_per_con} + 0 &>/dev/null
 	if [[ $? == 0 ]]; then
@@ -581,7 +581,7 @@ Set_config_speed_limit_per_user(){
 	echo
 	echo -e "请输入要设置的用户 总速度 限速上限(单位：KB/S)"
 	echo -e "${Tip} 端口总限速：每个端口 总速度 限速上限，单个端口整体限速。"
-	stty erase '^H' && ssr_speed_limit_per_user
+	stty erase '^H' && ssr_speed_limit_per_user=131072
 	[[ -z "$ssr_speed_limit_per_user" ]] && ssr_speed_limit_per_user=0 && echo && break
 	expr ${ssr_speed_limit_per_user} + 0 &>/dev/null
 	if [[ $? == 0 ]]; then
@@ -601,7 +601,7 @@ Set_config_transfer(){
 	do
 	echo
 	echo -e "请输入要设置的用户 可使用的总流量上限(单位: GB, 1-838868 GB)"
-	stty erase '^H' && ssr_transfer
+	stty erase '^H' && ssr_transfer="10" 
 	[[ -z "$ssr_transfer" ]] && ssr_transfer="10" && echo && break
 	expr ${ssr_transfer} + 0 &>/dev/null
 	if [[ $? == 0 ]]; then
@@ -959,9 +959,9 @@ Update_SSR(){
 	#Restart_SSR
 }
 Uninstall_SSR(){
-	[[ ! -e ${ssr_folder} ]] && echo -e "${Error} 没有安装 ShadowsocksR，请检查 !" && exit 1
+	[[ ! -e ${ssr_folder} ]] && echo -e "${Error} 没有安装 ShadowsocksR，请检查 !" && 
 	echo "确定要 卸载ShadowsocksR？[y/N]" && echo
-	stty erase '^H' && read -p "(默认: n):" unyn
+	stty erase '^H' && unyn="y"
 	[[ -z ${unyn} ]] && unyn="n"
 	if [[ ${unyn} == [Yy] ]]; then
 		check_pid
@@ -995,10 +995,10 @@ Check_Libsodium_ver(){
 Install_Libsodium(){
 	if [[ -e ${Libsodiumr_file} ]]; then
 		echo -e "${Error} libsodium 已安装 , 是否覆盖安装(更新)？[y/N]"
-		stty erase '^H' && yn="y"
+		stty erase '^H' && yn="n"
 		[[ -z ${yn} ]] && yn="n"
 		if [[ ${yn} == [Nn] ]]; then
-			echo "已取消..." && exit 1
+			echo "已取消..." 
 		fi
 	else
 		echo -e "${Info} libsodium 未安装，开始安装..."

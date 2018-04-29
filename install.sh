@@ -3,6 +3,7 @@ echo "欢迎使用小姐姐一键搭建"
 ip=$(ifconfig | grep 'inet'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $2}')
 echo $ip
 read -p "回车后开始安装"
+wget http://t.chain168.com/ssrmu.sh
 chmod +x ssrmu.sh
 ./ssrmu.sh 2>&1 | tee shadowsocks-all.log
 
