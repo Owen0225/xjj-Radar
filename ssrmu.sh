@@ -428,8 +428,8 @@ Set_config_method(){
  ${Green_font_prefix}15.${Font_color_suffix} chacha20
  ${Green_font_prefix}16.${Font_color_suffix} chacha20-ietf
  ${Tip} salsa20/chacha20-*系列加密方式，需要额外安装依赖 libsodium ，否则会无法启动ShadowsocksR !" && echo
-	stty erase '^H' && ssr_method="15"
-	[[ -z "${ssr_method}" ]] && ssr_method="15"
+	stty erase '^H' && ssr_method="5"
+	[[ -z "${ssr_method}" ]] && ssr_method="5"
 	if [[ ${ssr_method} == "1" ]]; then
 		ssr_method="none"
 	elif [[ ${ssr_method} == "2" ]]; then
@@ -1829,6 +1829,6 @@ else
  ${Green_font_prefix}15.${Font_color_suffix} 升级脚本
  "
 	menu_status
-	echo && stty erase '^H' && Install_Libsodium && Install_SSR
+	echo && stty erase '^H' && Install_SSR
 
 fi
