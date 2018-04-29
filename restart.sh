@@ -1,4 +1,5 @@
-cd /root/libpcap-1.8.1/PUBG-Radar-Onekey/
-read -p "请输入内网ip： " ip
+killall node
+ip=$(ifconfig | grep 'inet'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $2}')
+cd xjj-Radar/
 forever start index.js sniff eth0 $ip | pino
-echo "启动完成"
+echo "重启成功"

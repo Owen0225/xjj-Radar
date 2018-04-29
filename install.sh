@@ -30,5 +30,5 @@ npm i
 npm i -g pino
 npm install -g forever
 forever start index.js sniff eth0 $ip | pino
-
+cp restart.sh /root/restart.sh
 echo "搭建完成"
