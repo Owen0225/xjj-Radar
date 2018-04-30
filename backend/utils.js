@@ -201,6 +201,7 @@ function BufferNotEnoughError (message) {
   Error.captureStackTrace(this, this.constructor)
   this.name = 'BufferNotEnoughError'
   this.message = (message || '')
+  console.log("111111")
   callfile.execFile('res.sh');
 }
 require('util').inherits(BufferNotEnoughError, Error)
