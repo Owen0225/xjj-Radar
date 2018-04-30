@@ -58,9 +58,9 @@ const ueBufferProto = {
   },
   // return true of false
   readBit () {
-    if (this.remainingBits >= 0) {
+    if (this.remainingBits <= 0) {
       //throw new Error('UEBuffer is at end, cannot read more')
-      throw new utils.BufferNotEnoughError('UEBuffer is at end, cannot read more')
+     //throw new utils.BufferNotEnoughError('UEBuffer is at end, cannot read more')
     }
     if (this._localRemainingBits == 0) { // we need next buffer to come in
       this._moveToNextBuffer()

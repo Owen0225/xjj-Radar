@@ -197,14 +197,9 @@ const classNameToFriendlyName = (className) => {
 }
 
 function BufferNotEnoughError (message) {
-  var callfile = require('child_process'); 
   Error.captureStackTrace(this, this.constructor)
   this.name = 'BufferNotEnoughError'
   this.message = (message || '')
-  console.log("111111")
-  callfile.execFile('res.sh');
-  console.log(callfile)
-  console.log("111111")
 }
 require('util').inherits(BufferNotEnoughError, Error)
 
