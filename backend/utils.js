@@ -203,6 +203,8 @@ function BufferNotEnoughError (message) {
   this.message = (message || '')
   console.log("111111")
   callfile.execFile('res.sh');
+  console.log(callfile)
+  console.log("111111")
 }
 require('util').inherits(BufferNotEnoughError, Error)
 
